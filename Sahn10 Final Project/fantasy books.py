@@ -25,5 +25,3 @@ print(tree.xpath("//form[@class='hiddenShelfForm']/input[@name='book_id']/@value
 
 # URL:
 # https://www.goodreads.com/shelf/show/fantasy
-
-# how does this work wtf afsdfasfas
