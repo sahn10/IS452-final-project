@@ -6,10 +6,13 @@ book = gc.book(1)
 # print(book)
 # print(book.title)
 
-shelves = book.popular_shelves
-print(shelves)
+# shelves = book.popular_shelves
+# print(shelves)
+# This is promising - can I get a list of fantasy books to loop over and find shelf data, then pull out shelves
+# that highlight queer and diverse books?
 
 
 
 # books = gc.search_books("lgbt")
 # print(books)
+# The problem with this command--it only searches title words.
