@@ -5,17 +5,19 @@
 # scrape book IDs from Fantasy pages
 
 from goodreads import client
-from lxml import etree
+from lxml import html
+import requests
 
 gc = client.GoodreadsClient("Ha1oKI3R0fqeApxCJIcQ", "wbHQF5APtAgwKrY0kQ9gFSxyVEqt0kEqWwi3HUf0t7A")
 
-infile = open("fantasy_p1.htm", "rb")
-xml = infile.read()
-infile.close()
+page = requests.get('https://www.goodreads.com/shelf/show/fantasy')
+# thank you internet -- http://docs.python-guide.org/en/latest/scenarios/scrape/
 
-tree = etree.fromstring(xml)
+tree = html.fromstring(page.content)
 
-print(tree.xpath("//div[@class='wtrRight wtrUp']/form/input[@name='book_id']/@value)")
+print(tree.xpath("//form[@class='hiddenShelfForm']/input[@name='book_id']/@value"))
+# yesssss it worked -- the problem was with my xpath query.
+# Next step: set up accumulator to get all the page urls
 
 
 
